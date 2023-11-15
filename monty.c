@@ -15,6 +15,9 @@ int main(int ac, char **av)
 	size_t linereadsize;
 	char *lineread = NULL;
 	int line = 0;
+	char *opcode;
+	char *value;
+	char *push = "push";
 
 	if (ac != 2)
 	{
@@ -31,6 +34,19 @@ int main(int ac, char **av)
 	{
 		line++;
 		puts(lineread);
+		opcode = strtok(lineread, " ");
+		value = strtok(NULL, lineread);
+		if (opcode == push)
+		{
+			printf("opcode: %s, value: %s\n", opcode, value);
+		} else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+			exit(EXIT_FAILURE);
+		}
 	}
+	free(lineread);
+	lineread = NULL;
+	fclose(fp);
 	return (0);
 }
