@@ -1,5 +1,5 @@
-#ifndef /*MONTY_FILE*/
-#define /*MONTY_FILE*/
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,4 +37,4 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif /* MONTY_H */
+#endif

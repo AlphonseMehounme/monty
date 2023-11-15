@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "monty.h"
 
 /**
  * main - The monty legned
@@ -10,11 +11,27 @@
  */
 int main(int ac, char **av)
 {
+	FILE *fp;
+	char *file = av[1];
+	size_t linereadsize;
+	char *lineread = NULL;
+	int line = 0;
+
 	if (ac != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("Yo %s getting started...\n", av[1]);
+	fp = fopen(file, "r");
+	if (fp == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", file);
+		exit(EXIT_FAILURE);
+	}
+	while (getline(&lineread, &linereadsize, fp) != -1)
+	{
+		line++;
+		puts(lineread);
+	}
 	return (0);
 }
