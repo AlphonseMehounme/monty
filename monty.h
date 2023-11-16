@@ -44,4 +44,6 @@ typedef struct instruction_s
 void push();
 void free_stack(stack_t **stack);
 int is_int(char *str);
+instruction_t *find(char *opcode);
+int parse_instructions(stack_t **stack, char *lineread, unsigned int line);
 #endif
