@@ -14,10 +14,8 @@ int main(int ac, char **av)
 	char *file = av[1];
 	size_t linereadsize;
 	char *lineread = NULL;
-	int line = 0;
-	char *opcode;
-	char *value;
-	char *push = "push";
+	char *func = "push";
+	line = 0;
 
 	if (ac != 2)
 	{
@@ -35,10 +33,10 @@ int main(int ac, char **av)
 		line++;
 		puts(lineread);
 		opcode = strtok(lineread, " ");
-		value = strtok(NULL, lineread);
-		if (opcode == push)
+		value = atoi(strtok(NULL, lineread));
+		if (opcode == func)
 		{
-			printf("opcode: %s, value: %s\n", opcode, value);
+			push();
 		} else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
