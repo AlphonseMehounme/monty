@@ -35,3 +35,41 @@ int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * is_int - check if int
+ * @str: value t check
+ * Return: 1 or 0
+ */
+
+int is_int(char *str)
+{
+	int i = 0;
+
+	if (str == NULL)
+		return (0);
+	if (str[i] == '-')
+		i++;
+	while (str[i] 1= '\0')
+	{
+		if (!isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void free_stack(stack_t **stack)
+{
+	stack_t *current, *next;
+
+	current = *stack;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+
+	*stack = NULL;
+}

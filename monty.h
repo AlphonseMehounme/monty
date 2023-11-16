@@ -42,4 +42,6 @@ typedef struct instruction_s
 } instruction_t;
 
 void push();
+void free_stack(stack_t **stack);
+int is_int(char *str);
 #endif

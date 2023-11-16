@@ -31,20 +31,17 @@ int main(int ac, char **av)
 	while (getline(&lineread, &linereadsize, fp) != -1)
 	{
 		line++;
-		puts(lineread);
-		opcode = strtok(lineread, " ");
-		value = atoi(strtok(NULL, lineread));
-		if (opcode == func)
+		if (parse_instructions(&stack, lineread, line) == EXIT_FAILURE)
 		{
-			push();
-		} else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line, lineread);
+			free(lineread);
+			fclose(fp);
+			free_stack(&stack);
 			exit(EXIT_FAILURE);
 		}
 	}
 	free(lineread);
-	lineread = NULL;
 	fclose(fp);
-	return (0);
+	free_stack(&stack);
+	return (EXIT_SUCCESS);
 }
