@@ -16,7 +16,7 @@ instruction_t *find(char *opcode)
 
 	int i = 0;
 
-	while (instruction[i].opcode)
+	while (instructions[i].opcode)
 	{
 		if (strcmp(instructions[i].opcode, opcode) == 0)
 			return (&instructions[i]);

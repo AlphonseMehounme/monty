@@ -14,7 +14,6 @@ int main(int ac, char **av)
 	char *file = av[1];
 	size_t linereadsize;
 	char *lineread = NULL;
-	char *func = "push";
 	line = 0;
 
 	if (ac != 2)
