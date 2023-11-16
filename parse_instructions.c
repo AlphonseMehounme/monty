@@ -50,7 +50,7 @@ int is_int(char *str)
 		return (0);
 	if (str[i] == '-')
 		i++;
-	while (str[i] 1= '\0')
+	while (str[i] != '\0')
 	{
 		if (!isdigit(str[i]))
 			return (0);
