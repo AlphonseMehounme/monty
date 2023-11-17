@@ -13,7 +13,7 @@ int main(int ac, char **av)
 	FILE *fp;
 	size_t linereadsize;
 	char *lineread = NULL;
-	line = 0;
+	unsigned int line = 0;
 	file = av[1];
 
 	if (ac != 2)

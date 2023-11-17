@@ -7,9 +7,11 @@
  * @line: number of line
  */
 
-void push(stack_t **stack, int value, unsigned int __attribute__((unused)) line)
+void push(stack_t **stack, unsigned int line)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+
+	(void)line;
 
 	if (!new_node)
 	{
@@ -17,7 +19,7 @@ void push(stack_t **stack, int value, unsigned int __attribute__((unused)) line)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = value;
+	new_node->n = atoi(value);
 	new_node->prev = NULL;
 	new_node->next = *stack;
 

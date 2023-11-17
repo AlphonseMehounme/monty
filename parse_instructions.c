@@ -11,7 +11,7 @@
 
 int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
 {
-	char *opcode, *value;
+	char *opcode;
 
 	opcode = strtok(lineread, " ");
 	value = strtok(NULL, " ");
@@ -23,7 +23,7 @@ int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
 			fprintf(stderr, "Error: can't open file %s\n", file);
 			return (EXIT_FAILURE);
 		}
-		push(stack, atoi(value), line);
+		push(stack, line);
 	}
 	else if (strcmp(opcode, "pall") == 0)
 	{

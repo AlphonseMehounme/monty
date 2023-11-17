@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-extern int line, value;
+extern char *value;
 extern char *opcode;
 extern char *file;
 /**
@@ -42,8 +42,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, int value, unsigned int line);
-void pall(stack_t **stack, unsigned int line);
+void push(stack_t **stack, unsigned int value);
+void pall(stack_t **stack, unsigned int value);
 void free_stack(stack_t **stack);
 int is_int(char *str);
 instruction_t *find(char *opcode);
