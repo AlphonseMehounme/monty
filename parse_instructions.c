@@ -5,11 +5,12 @@
  * @stack: Piinter to the stack
  * @lineread: line contqining the instructions
  * @line: line number the file
+ * @file: bytecode file
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
  */
-
-int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
+int parse_instructions(stack_t **stack, char *lineread, unsigned int line,
+char *file)
 {
 	char *opcode;
 
@@ -42,7 +43,6 @@ int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
  * @str: value t check
  * Return: 1 or 0
  */
-
 int is_int(char *str)
 {
 	int i = 0;
@@ -60,6 +60,10 @@ int is_int(char *str)
 	return (1);
 }
 
+/**
+ * free_stack - Free stack
+ * @stack: Stack to free
+ */
 void free_stack(stack_t **stack)
 {
 	stack_t *current, *next;

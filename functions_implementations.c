@@ -3,10 +3,8 @@
 /**
  * push - add element to the stack
  * @stack: the stack to work on
- * @value: number to add
  * @line: number of line
  */
-
 void push(stack_t **stack, unsigned int line)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
@@ -34,7 +32,6 @@ void push(stack_t **stack, unsigned int line)
  * @stack: stack to print
  * @line: line number
  */
-
 void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *current = *stack;
