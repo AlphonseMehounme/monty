@@ -26,7 +26,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-stack_t *top;
+stack_t *stack;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
