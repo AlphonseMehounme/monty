@@ -28,7 +28,7 @@ void push(stack_t **stack, int value, unsigned int line)
 }
 
 /**
- * pail - print all nodes
+ * pall - print all nodes
  * @stack: stack to print
  * @line: line number
  */
