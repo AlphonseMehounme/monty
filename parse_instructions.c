@@ -34,6 +34,7 @@ int parse_instructions(stack_t **stack, char *lineread, unsigned int line)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line, opcode);
 		exit(EXIT_FAILURE);
 	}
+	return (0);
 }
 
 /**
