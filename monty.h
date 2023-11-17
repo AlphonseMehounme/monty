@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 extern int line, value;
 extern char *opcode;
-
+extern char *file;
 /**
  * struct stack_s - doubly linked list representation of a stack or queue
  * @n: integer
@@ -42,6 +43,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void push();
+void pall();
 void free_stack(stack_t **stack);
 int is_int(char *str);
 instruction_t *find(char *opcode);

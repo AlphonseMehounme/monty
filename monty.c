@@ -11,7 +11,7 @@
 int main(int ac, char **av)
 {
 	FILE *fp;
-	char *file = av[1];
+	file = av[1];
 	size_t linereadsize;
 	char *lineread = NULL;
 	line = 0;
