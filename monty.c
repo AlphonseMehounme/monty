@@ -11,10 +11,10 @@
 int main(int ac, char **av)
 {
 	FILE *fp;
-	file = av[1];
 	size_t linereadsize;
 	char *lineread = NULL;
 	line = 0;
+	file = av[1];
 
 	if (ac != 2)
 	{

@@ -7,7 +7,7 @@
  * @line: number of line
  */
 
-void push(stack_t **stack, int value, unsigned int line)
+void push(stack_t **stack, int value, unsigned int __attribute__((unused)) line)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 

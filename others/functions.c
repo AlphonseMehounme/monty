@@ -13,16 +13,16 @@ void push()
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (top == NULL)
+	if (stack == NULL)
 	{
 		new->n = value;
 		new->next = NULL;
-		top = new;
+		stack = new;
 	} else
 	{
 		new->n = value;
-		new->next = top;
-		top = new;
+		new->next = stack;
+		stack = new;
 	}
 }
 
@@ -33,12 +33,12 @@ void pop()
 {
 	int __attribute__((unused)) val;
 
-	if (top == NULL)
+	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 	}
-	val = top->n;
-	top = top->next;
+	val = stack->n;
+	stack = stack->next;
 }
 
 /**
@@ -48,7 +48,7 @@ void pall()
 {
 	stack_t *temp;
 
-	temp = top;
+	temp = stack;
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
@@ -60,10 +60,10 @@ void pall()
  */
 void pint()
 {
-	if (top == NULL)
+	if (stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", top->n);
+	printf("%d\n", stack->n);
 }
