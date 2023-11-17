@@ -13,8 +13,9 @@ int main(int ac, char **av)
 	FILE *fp;
 	size_t linereadsize;
 	char *lineread = NULL;
-	line = 0;
-	file = av[1];
+	unsigned int line = 0;
+	char *file = av[1];
+	stack_t *stack;
 
 	if (ac != 2)
 	{
@@ -30,7 +31,7 @@ int main(int ac, char **av)
 	while (getline(&lineread, &linereadsize, fp) != -1)
 	{
 		line++;
-		if (parse_instructions(&stack, lineread, line) == EXIT_FAILURE)
+		if (parse_instructions(&stack, lineread, line, file) == EXIT_FAILURE)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line, lineread);
 			free(lineread);

@@ -3,9 +3,9 @@
 /**
  * push - add element to the stack
  * @stack: the stack to work on
- * @value: number to add
  * @line: number of line
  */
+<<<<<<< HEAD
 
 void push(stack_t **stack, unsigned int __attribute__((unused))line)
 {
@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int __attribute__((unused))line)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = value;
+	new_node->n = atoi(value);
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
@@ -34,7 +34,6 @@ void push(stack_t **stack, unsigned int __attribute__((unused))line)
  * @stack: stack to print
  * @line: line number
  */
-
 void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *current = *stack;

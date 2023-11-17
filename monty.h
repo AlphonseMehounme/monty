@@ -9,6 +9,7 @@
 extern char *line, value;
 extern char *opcode;
 extern char *file;
+
 /**
  * struct stack_s - doubly linked list representation of a stack or queue
  * @n: integer
@@ -18,7 +19,6 @@ extern char *file;
  * Description: doubly linked list node structure
  * for stack, queue, LIFO, FIFO
  */
-
 typedef struct stack_s
 {
 	int n;
@@ -26,7 +26,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-stack_t *stack;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -35,7 +34,6 @@ stack_t *stack;
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO
  */
-
 typedef struct instruction_s
 {
 	char *opcode;
@@ -51,4 +49,11 @@ int is_int(char *str);
 instruction_t *find(char *opcode, instruction_t *instructions);
 int parse_instructions(stack_t **stack, char *lineread, unsigned int line);
 char *my_strdup(const char *src);
+void push(stack_t **stack, unsigned int value);
+void pall(stack_t **stack, unsigned int value);
+void free_stack(stack_t **stack);
+int is_int(char *str);
+instruction_t *find(char *opcode);
+int parse_instructions(stack_t **stack, char *lineread, unsigned int line,
+char *file);
 #endif
