@@ -13,14 +13,16 @@ int parse_instructions(stack_t **stack, char *lineread, unsigned int line,
 char *file)
 {
 	char *opcode = strtok(lineread, " ");
-	char *value = strtok(NULL, " ");
+	/**char *value = strtok(NULL, " ");*/
+	char *value = "123";
 
+	(void)file;
 	if (strcmp(opcode, "push") == 0)
 	{
 		if (value == NULL || !is_int(value))
 		{
-			fprintf(stderr, "Error: can't open file %s\n", file);
-			return (EXIT_FAILURE);
+			fprintf(stderr, "L%d: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
 		}
 		push(stack, line);
 	}

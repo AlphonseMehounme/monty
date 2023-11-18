@@ -31,7 +31,7 @@ int main(int ac, char **av)
 	while (getline(&lineread, &linereadsize, fp) != -1)
 	{
 		line++;
-		if (parse_instructions(&stack, lineread, line, file) == EXIT_FAILURE)
+		if (parse_instructions(&stack, lineread, line, file) != 0)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line, lineread);
 			free(lineread);
