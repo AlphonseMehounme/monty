@@ -35,22 +35,15 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line);
-void pall(stack_t **stack, unsigned int line);
-instruction_t *get_instructions();
-void free_instructions(instruction_t *instructions);
+void push(stack_t **stack, unsigned int value);
+void pall(stack_t **stack, unsigned int value);
 void free_stack(stack_t **stack);
 int is_int(char *str);
-instruction_t *find(char *opcode, instruction_t *instructions);
-char *my_strdup(const char *src);
-void free_stack(stack_t **stack);
-int is_int(char *str);
-/**
- * instruction_t *find(char *opcode);
- */
-int parse_instructions(stack_t **stack, char *lineread, unsigned int line, char *file);
+instruction_t *find(char *opcode);
+int parse_instructions(stack_t **stack, char *lineread, unsigned int line,
+char *file);
 
 #endif

@@ -8,9 +8,9 @@
 void push(stack_t **stack, unsigned int line)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
-	char *value = "1";
 
 	(void)line;
+
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -37,6 +37,7 @@ void pall(stack_t **stack, unsigned int line)
 	stack_t *current = *stack;
 
 	(void)line;
+
 	while (current)
 	{
 		printf("%d\n", current->n);
