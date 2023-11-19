@@ -12,10 +12,11 @@
 int parse_instructions(stack_t **stack, char *lineread, unsigned int line,
 char *file)
 {
-	char *opcode = strtok(lineread, " ");
-	/**char *value = strtok(NULL, " ");*/
-	char *value = "123";
-
+	char *opcode;
+	char *value;
+	
+	opcode = strtok(lineread, " ");
+	value = strtok(NULL, " ");
 	(void)file;
 	if (strcmp(opcode, "push") == 0)
 	{
