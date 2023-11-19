@@ -1,4 +1,4 @@
-push 1
-push 2
+pall 1
+push
 push 3
 pall
